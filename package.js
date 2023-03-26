@@ -1,0 +1,26 @@
+{
+  "name": "angular-ja",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/angular/angular-ja",
+  "author": "Suguru Inatomi <suguru.inatomi@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "zx tools/watch.mjs",
+    "build": "zx tools/build.mjs",
+    "lint": "yarn ~textlint",
+    "~textlint": "textlint 'aio-ja/**/!(*.en).md'",
+    "test": "npm run lint && yarn test:patch",
+    "test:patch": "git apply -v --check --directory origin ./tools/git-patch/*.patch",
+    "update-origin": "zx tools/update-origin.mjs"
+  },
+  "devDependencies": {
+    "chokidar": "3.5.3",
+    "prh-rules": "prh/rules",
+    "textlint": "^13.3.1",
+    "textlint-filter-rule-comments": "^1.2.2",
+    "textlint-rule-prh": "^5.3.0",
+    "zx": "7.2.1"
+  }
+}
